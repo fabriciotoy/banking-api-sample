@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\banking-api-sample.Domain\banking-api-sample.Domain.csproj" />
+    <ProjectReference Include="..\banking-api-sample.Application\banking-api-sample.Application.csproj" />
+  </ItemGroup>
+</Project>
