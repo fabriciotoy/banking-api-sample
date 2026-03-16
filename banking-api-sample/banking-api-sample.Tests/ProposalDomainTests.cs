@@ -1,6 +1,7 @@
 using System;
 using BankingApiSample.Domain.Entities;
 using BankingApiSample.Domain.Exceptions;
+using BankingApiSample.Domain.Enums;
 using Xunit;
 
 namespace BankingApiSample.Tests
@@ -19,7 +20,7 @@ namespace BankingApiSample.Tests
         {
             var p = new Proposal("Test", "000", 1000m, 1000m);
             Assert.Equal(1000m, p.RequestedAmount);
-            Assert.Equal(Enums.ProposalStatus.Pending, p.Status);
+            Assert.Equal(ProposalStatus.Pending, p.Status);
         }
     }
 }

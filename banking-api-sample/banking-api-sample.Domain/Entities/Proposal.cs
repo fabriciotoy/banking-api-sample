@@ -1,4 +1,5 @@
 using System;
+using BankingApiSample.Domain.Enums;
 
 namespace BankingApiSample.Domain.Entities
 {
@@ -9,7 +10,7 @@ namespace BankingApiSample.Domain.Entities
         public string DocumentNumber { get; private set; } = string.Empty;
         public decimal RequestedAmount { get; private set; }
         public decimal MonthlyIncome { get; private set; }
-        public Enums.ProposalStatus Status { get; private set; }
+        public ProposalStatus Status { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdatedAt { get; private set; }
 
@@ -22,7 +23,7 @@ namespace BankingApiSample.Domain.Entities
             DocumentNumber = documentNumber;
             RequestedAmount = requestedAmount;
             MonthlyIncome = monthlyIncome;
-            Status = Enums.ProposalStatus.Pending;
+            Status = ProposalStatus.Pending;
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
 
@@ -38,28 +39,28 @@ namespace BankingApiSample.Domain.Entities
 
         public void MoveToUnderReview()
         {
-            if (Status != Enums.ProposalStatus.Pending)
+            if (Status != ProposalStatus.Pending)
                 throw new Exceptions.DomainException("Only pending proposals can be moved to review.");
 
-            Status = Enums.ProposalStatus.UnderReview;
+            Status = ProposalStatus.UnderReview;
             UpdatedAt = DateTime.UtcNow;
         }
 
         public void Approve()
         {
-            if (Status == Enums.ProposalStatus.Approved)
+            if (Status == ProposalStatus.Approved)
                 throw new Exceptions.DomainException("Proposal is already approved.");
 
-            Status = Enums.ProposalStatus.Approved;
+            Status = ProposalStatus.Approved;
             UpdatedAt = DateTime.UtcNow;
         }
 
         public void Reject()
         {
-            if (Status == Enums.ProposalStatus.Rejected)
+            if (Status == ProposalStatus.Rejected)
                 throw new Exceptions.DomainException("Proposal is already rejected.");
 
-            Status = Enums.ProposalStatus.Rejected;
+            Status = ProposalStatus.Rejected;
             UpdatedAt = DateTime.UtcNow;
         }
 

@@ -1,5 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
+using BankingApiSample.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
